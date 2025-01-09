@@ -16,7 +16,7 @@ class _ContainerWithListViewBuilderState
     extends State<ContainerWithListViewBuilder> {
   TextEditingController friendListController = TextEditingController();
 
-  List friendList = ["Waqar", "Sajjad", "Sohail"];
+  List friendList = ["Waqar", "Sajjad", "Sohail", 'WAQAR', "Sajjad", "Sohail", "Waqar", "Sohail", "Sajjad", "Waqar","SAJJAD","SOHAIL"];
 
 //Add Items using TextField
   addItem() {
@@ -34,47 +34,46 @@ class _ContainerWithListViewBuilderState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: TextField(
-          controller: friendListController,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
         ),
-        actions: [
-          ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  friendList.add(friendListController.text);
-                  friendListController.clear();
-                });
-              },
-              child: const Text(
-                "Add Item",
-              ))
-        ],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
+        body: SingleChildScrollView(   // Parent Scrollable For All
           child: Column(children: [
             Container(
               height: 200,
               color: Colors.red,
             ),
+                        TextField(
+            controller: friendListController,
+          ),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    friendList.add(friendListController.text);
+                    friendListController.clear();
+                  });
+                },
+                child: const Text(
+                  "Add Item",
+                )),
             ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 20,
+                shrinkWrap: true,  // shrinkWrap shrink both Listview builder and Container to shrink
+                physics: NeverScrollableScrollPhysics(), // reset of Listview builder is scrollable means list is scrollable 
+                itemCount: friendList.length, // total length of friendList
                 itemBuilder: (bcontext, index) {
                   return Container(
                     margin: const EdgeInsets.only(bottom: 2),
                     child: ListTile(
                       tileColor: Colors.grey,
-                      title: Text(index.toString()),
+                      title: Text(friendList[index]), // print the list names that are already stored in frinedList
                       trailing: IconButton(
                           onPressed: () {
-                            removeItem(meraBanayahowa: index);
+                            removeItem(meraBanayahowa: index); // You Can Delete Items or Names You have added 
                           },
                           icon: const Icon(
-                            Icons.delete,
+                            Icons.delete,     
                           )),
                     ),
                   );
