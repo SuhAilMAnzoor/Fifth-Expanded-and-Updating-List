@@ -1,6 +1,6 @@
 //Screen Overflow ho khatam ho chuki using physics and shrink wrap,
 //shrink kar dega is se zyada nahe bhagega jitna content hai us ke hasb se shrink kar wrap karga parent column men
-// shrinkwrap is used for those widgets those have not width and heigh if you are using
+// shrinkwrap is used for those widgets those have not width and height if you are using
 // same time and also we make it scrollable
 import 'package:flutter/material.dart';
 
