@@ -1,4 +1,4 @@
-import 'package:fifth_expanded_and_updating_list/01.list_builder_screen_over_flow_solved_with_scroll.dart';
+import 'package:fifth_expanded_and_updating_list/02.expanded.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ContainerWithListViewBuilder(),
+      home: ContainerWithExpanded(),
     );
   }
 }
